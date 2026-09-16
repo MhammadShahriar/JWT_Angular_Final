@@ -1,0 +1,78 @@
+<p>home works! Demo Only</p>
+
+
+<button pButton>
+    <span pButtonLabel>Save Latest</span>
+</button>
+
+<button pButton>
+    <i class="pi pi-save" pButtonIcon></i>
+    <span pButtonLabel>Save Latest33</span>
+</button>
+
+<button pButton>
+    <i class="pi pi-search" pButtonIcon></i>
+    <span pButtonLabel>Search</span>
+</button>
+
+<button pButton>
+    <i class="pi pi-plus" pButtonIcon></i>
+    <span pButtonLabel>New</span>
+</button>
+
+<button pButton>
+    <i class="pi pi-pencil" pButtonIcon></i>
+    <span pButtonLabel>Edit</span>
+</button>
+
+<button pButton>
+    <i class="pi pi-trash" pButtonIcon></i>
+    <span pButtonLabel>Delete</span>
+</button>
+
+
+
+<p>home works!</p>
+
+<div class="container mt-5">
+
+  <h2>Welcome to Home</h2>
+
+  <p>
+    You are logged in successfully.
+  </p>
+
+  <button
+    class="btn btn-danger"
+    (click)="logout()"
+  >
+    Logout
+  </button>
+
+</div>
+
+
+<br/>
+
+<p-table [value]="users" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 20]">
+
+    <ng-template #header>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Nationality</th>
+        </tr>
+    </ng-template>
+
+    <ng-template #body let-user>
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name | uppercase }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.nationality }}</td>
+        </tr>
+    </ng-template>
+
+</p-table>
+

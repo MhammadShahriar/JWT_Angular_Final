@@ -1,0 +1,96 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+
+      <div class="card shadow">
+        <div class="card-body">
+
+          <h3 class="text-center mb-4">
+            Login
+          </h3>
+
+          <form
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmit()"
+          >
+
+            <!-- Username -->
+            <div class="mb-3">
+
+              <label class="form-label">
+                Username
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                formControlName="username"
+                placeholder="Enter username"
+              />
+
+              @if (
+                loginForm.controls.username.touched &&
+                loginForm.controls.username.invalid
+              ) {
+                <small class="text-danger">
+                  Username is required.
+                </small>
+              }
+
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+
+              <label class="form-label">
+                Password
+              </label>
+
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Enter password"
+              />
+
+              @if (
+                loginForm.controls.password.touched &&
+                loginForm.controls.password.invalid
+              ) {
+                <small class="text-danger">
+                  Password is required.
+                </small>
+              }
+
+            </div>
+
+            <!-- Error -->
+            @if (errorMessage) {
+              <div class="alert alert-danger">
+                {{ errorMessage }}
+              </div>
+            }
+
+            <!-- Submit -->
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              [disabled]="isLoading"
+            >
+
+              @if (isLoading) {
+                Logging in...
+              } @else {
+                Login
+              }
+
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
